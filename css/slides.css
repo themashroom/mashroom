@@ -987,6 +987,7 @@ img.rounded {
     width: 100%;
     display: block !important;
   }
+  .
 }
 .slides-form input[type="text"].wide,
 .slides-form input[type="name"].wide,
@@ -1409,6 +1410,9 @@ html:not(.mobile) .slide.video .background[style] {
   }
   .pad.shadow {
     box-shadow: none;
+  }
+  .panel{
+    padding: 0px 30px !important;   
   }
 }
 
