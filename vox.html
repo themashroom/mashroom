@@ -64,7 +64,7 @@
 				box-shadow: 0px 52px 64px rgba(0, 0, 0, 1);
 			}
 		</style>
-		
+				
 	</head>
 <body class="slides scroll animated">
 		
@@ -180,6 +180,47 @@
   .slides:not(.scroll) .menuToggle.slideEffectToggle * { cursor: default !important; opacity:1; pointer-events:none;}
 </style>
 
+<!-- Split -->
+<style>
+/* scroll effect support */
+.scroll .slide.split,
+.scroll .slide.split .container {
+  min-height: 100vh;
+}
+
+.slide.split .wrap {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .slide.split .container,
+  .slide.split .wrap {
+    width: 100% !important;
+    min-height: 50vh;
+  }
+
+  .slide.split .container {
+    display: block;
+    height: auto;
+  }
+
+  .slide.split .wrap {
+    display: table;
+    background-attachment: inherit;
+  }
+
+  .slide.split .wrap .mobile-wrap {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+}
+</style>
+
+
 
 
 <!-- Panel Top #library/panel/panel-top-08.html -->
@@ -197,7 +238,7 @@
     </div>
   </div>
   <div class="sections compact hidden">
-    <div class="left"><a href="index.html" title="Mashroom"><svg style="width:50px;height:50px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
+    <div class="left"><a href="#" title="Mashroom"><svg style="width:50px;height:50px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
     <div class="right"><span class="actionButton sidebarTrigger" data-sidebar-id="1"><svg style="width:24px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span></div>
   </div>
 </nav>
@@ -223,63 +264,34 @@
   </div>
 </nav>
 
-
-
-
-<!-- Vox -->
-<section data-title="Vox" class="slide fade-0 kenBurns">
+<!-- Split the Content -->
+<section class="slide autoHeight Slide split">
   <div class="content">
     <div class="container">
-      <div class="wrap">
+      <div class="wrap" style="background:linear-gradient(-0deg, #3670B5, #85CFE8);">
         
-        <ul class="grid">
-          <li class="col-12-12">
-            <div class="fix-6-12">
-	          <h3 class="ae-1 margin-bottom-3">Asynchronized Logistics</h3>
-	          <svg height="50" class="wide ae-2 margin-bottom-6"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#voxlogo"></use></svg>  
-	          <div class="ae-3"><p class="hero margin-bottom-4">Smart box system for secure delivery and shipping when you are not at home.</p></div>
-	          <a href="vox.html" class="button whitebtn ae-4 fromCenter">Learn more</a><a href="https://vox.delivery" target="_blank" class="button stroke white text-white ae-5 fromCenter">Product Page</a>
-            </div>
-          </li>
-          <li class="col-12-12">
-            <div class="fix-6-12 ae-6 margin-top-6">
-              <img width="1080" src="assets/img/vox_smartbox2.png" class="voxshadow shiftImage iphone-5" alt="Smart Box System"/>
-            </div>
-          </li>
-        </ul>
-                  
+        <div class="mobile-wrap">
+	      <h3 class="ae-1 margin-bottom-3">SMOOTH. CONNECTED. UNLEASHED.</h3>
+          <h1 class="small ae-2">Smart Box System</h1>
+          <p class="ae-3 hero margin-bottom-3">Smart delivery box for secure delivery and shipping when you are not at home.</p>
+          <a href="https://vox.delivery/sbs.html" target="_blank" class="button whitebtnb ae-4 fromCenter margin-bottom-12">Product Page</a></br>
+          <img width="480" src="assets/img/vox_smartbox2.png" class="ae-5 voxshadow shiftImage smartboxsystem" alt="Smart Box System"/>
+        </div>
+
+      </div>
+      <div class="wrap center" style="background:linear-gradient(-0deg, #182029, #394C5F);">
+        <div class="mobile-wrap">
+          <h3 class="ae-1 margin-bottom-3">SHIPPABLE. RETURNABLE. SCALABLE.</h3>
+          <h1 class="small ae-2">Smart Container</h1>
+          <p class="ae-3 hero margin-bottom-3">Next generation smart delivery unit as a ultimate last-mile logistics platform.</p>
+          <a href="https://vox.delivery/sc.html" target="_blank" class="button whitebtnd ae-4 fromCenter margin-bottom-12">Product Page</a></br>
+          <img width="480" src="assets/img/vox_container2.png" class="ae-5 voxshadow shiftImage smartcontainer" alt="Smart Container"/>
+        </div>
       </div>
     </div>
   </div>
-  <div class="background" style="background:linear-gradient(-0deg, #91A8B9, #ACBAC6);"></div>
 </section>
 
-<!-- Pass -->
-<section data-title="Pass" class="slide whiteSlide">
-  <div class="content">
-    <div class="container">
-      <div class="wrap">
-        
-        <ul class="grid">
-          <li class="col-12-12">
-            <div class="fix-6-12">
-	          <h3 class="ae-1 margin-bottom-3">MAKE IT UNLIMITED</h3>
-	          <svg height="50" class="wide ae-2 margin-bottom-6"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#passlogo"></use></svg>  
-	          <div class="ae-3"><p class="hero margin-bottom-4">Unlimited pass platform for subscription-based service at physical stores and facilities.</p></div>
-	          <a href="#" class="button blackbtn ae-4 fromCenter">Learn more</a>
-            </div>
-          </li>
-          <li class="col-12-12">
-            <div class="fix-7-12 ae-5 margin-top-3">
-              <img width="1080" src="assets/img/pass_device.png" class="shiftImage iphone-6" alt="Pass"/>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="background" style="background:linear-gradient(-0deg, #F6F6F6, #FFFFFF);"></div>
-</section>
 
 </body>
 </html>

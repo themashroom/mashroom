@@ -1152,7 +1152,7 @@ img.rounded {
 }
 .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
 .container .wrap .spaceWrap {
-  padding: 120px calc(8% + 15px);
+  padding: 120px calc(8% + 25px);
 }
 .container .wrap .overflowHidden {
   overflow: hidden;
@@ -4544,7 +4544,7 @@ h1, .h1 {
   line-height: 1.285;
   font-weight: 300;
   margin-bottom: 20px;
-  letter-spacing: -0.036em;
+  letter-spacing: 0.002em;
 }
 h1.big, .h1.big {
   font-size: 58px;
@@ -4773,7 +4773,14 @@ h5.uppercase, h5.uppercase {
   background: #fff !important;
   color: #92A1AD !important;
 }
-
+.whitebtnb {
+  background: #fff !important;
+  color: #5595C8 !important;
+}
+.whitebtnd {
+  background: #fff !important;
+  color: #24313D	 !important;
+}
 .white svg {
   fill: #171A1D !important;
 }
@@ -6366,6 +6373,14 @@ html:not(.page-loaded) .dialog {
 /* Slides Custom Styles */
 .svg-5 {
   padding-bottom: 27%;
+}
+
+.smartboxsystem.shiftImage {
+  margin: 0 0 -40%;
+}
+
+.smartcontainer.shiftImage {
+  margin: 0 0 -80%;
 }
 
 .iphone-5.shiftImage {
