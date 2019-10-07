@@ -1415,7 +1415,16 @@ html:not(.mobile) .slide.video .background[style] {
     padding: 0px 30px !important;   
   }
   .wide {
-  width: 70% !important;
+    width: 60% !important;
+  }
+  h3, .h3 {
+	font-size: 18px !important;  
+  }
+  .button {
+	font-size: 14px !important;
+  }
+  .margin-bottom-6 {
+	margin-bottom: 40px !important;
   }
 }
 
@@ -4649,7 +4658,7 @@ blockquote {
 p.hero,
 .p.hero,
 blockquote.hero {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
   margin-bottom: 25px;
   opacity: .8;
@@ -4778,7 +4787,7 @@ h5.uppercase, h5.uppercase {
 }
 .whitebtnb {
   background: #F9FBFC !important;
-  color: #3D94CD !important;
+  color: #69ADD6 !important;
 }
 .whitebtnd {
   background: #F9FBFC !important;
@@ -6387,7 +6396,7 @@ html:not(.page-loaded) .dialog {
 }
 
 .iphone-5.shiftImage {
-  margin: 0 0 -25%;
+  margin: 0 0 -26%;
 }
 
 .iphone-6.shiftImage {
@@ -9083,7 +9092,7 @@ span.next-arrow svg {
 }
 
 .margin-bottom-6 {
-  margin-bottom: 60px !important;
+  margin-bottom: 60px;
 }
 
 .margin-bottom-7 {
