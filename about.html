@@ -161,6 +161,28 @@
   });
 </script>
 
+<!-- Map Box (https://www.mapbox.com/) -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+<script>
+  $(function(){
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFzdGVybGVvcG9sZCIsImEiOiJNaXZqYWhvIn0.39SShM4ElJZhcSMAJ8H3uA';
+    var map = new mapboxgl.Map({
+      container: 'mapboxBackground',
+      style: 'mapbox://styles/mapbox/dark-v9',
+      zoom: 13,
+      center: [139.7309913351345, 35.622191828380664],
+      type: "Point"
+    });
+
+    $('.popupTrigger[data-popup-id="mapbox"]').on('click', function(){
+      map.resize();
+    });
+  });
+</script>
+
+
 <style>
   .panel.top {
     -webkit-transition: 0.8s transform, 0.8s opacity, 0.8s background !important;
@@ -179,6 +201,72 @@
   .slides.scroll .menuToggle.scrollEffectToggle *,
   .slides:not(.scroll) .menuToggle.slideEffectToggle * { cursor: default !important; opacity:1; pointer-events:none;}
 </style>
+
+<script src="https://rawcdn.githack.com/scdoshi/jquery-ajaxchimp/47c0beaa/jquery.ajaxchimp.min.js"></script>
+<script>
+  $(function(){
+    $('#subscribe').ajaxChimp({
+      url: 'https://mashroo.us5.list-manage.com/subscribe/post?u=b8e08b19b7bdc680cab71f08e&amp;id=154b8e880b',
+      callback: callbackFunction,
+      language: 'custom'
+    });
+
+    //custom messages
+    $.ajaxChimp.translations.custom = {
+      'submit': 'Submitting...',
+      0: 'Thank you for the subscription!',
+      1: 'Please enter your email',
+      2: 'An email address must contain a single @',
+      3: 'The domain portion of the email address is invalid (the portion after the @: )',
+      4: 'The username portion of the email address is invalid (the portion before the @: )',
+      5: 'This email address looks fake or invalid. Please enter a real email address'
+    }
+
+    //js function on success
+    function callbackFunction (resp) {
+      if (resp.result === 'success') {
+        $('input[name="subscribe-submit"]').attr('value', 'Check email').addClass('green');
+      }
+    }
+  });
+</script>
+
+<style>
+  .subscribe-message {
+    display: block;
+    font-family: 'GothamPro', sans-serif;
+	font-weight: 200;
+    font-size: 20px;
+    max-width:462px;
+    margin:0 auto;
+    border-radius:24px;
+    line-height: 1.4;
+          
+    /* animation */  
+    -webkit-transform:scale(0);
+    transform:scale(0);
+    opacity:0;
+    max-height:0;
+    padding:0;
+    border-width:0;
+    
+    -webkit-transition:0.5s;
+    transition:0.5s;
+  }
+  .subscribe-message a { font-weight:600; }
+  .subscribe-message.valid,
+  .subscribe-message.error {
+    -webkit-transform:scale(1);
+    transform:scale(1);
+    max-height:132px;
+    opacity:1;
+    padding:16px 20px 15px;
+    border:0px solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+</style>
+
 
 
 
@@ -305,30 +393,56 @@
           <p class="ae-2 hero"><span class="opacity-8">Our goal is to minimize the friction and maximize the service transaction at physical world with our simplified universal authentication platform.</span></p>
           </div>
           <ul class="grid equal fixedSpaces margin-top-6">
-            <li class="col-6-12 ae-3">
-              <div class="fix-3-12 equalElement">
-                <h6 class="uppercase opacity-4 margin-top-3 margin-bottom-2">HQ</h6>
+            <li class="col-2-12 ae-3">
+              <div class="fix-2-12 equalElement">
+                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Founded in</h6>
+                <p class="tiny">Dec. 2017</p>
+                <h6 class="uppercase opacity-5 margin-top-4 margin-bottom-2">Phone</h6>
+                <p class="tiny">+81 50 5867 6542</p>
+              </div>
+            </li>
+            <li class="col-4-12 ae-3">
+              <div class="fix-4-12 equalElement">
+                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Location</h6>
                 <p class="tiny"><a class="opacity-8" href="#">5-5-15 Kitashinagawa, Shinagawa, Tokyo 1410001 Japan</a></p>
+                <a class="button stroke white text-white ae-4 fromCenter margin-top-1 popupTrigger" data-popup-id="mapbox">Access Map</a>
               </div>
             </li>
             <li class="col-6-12 ae-5">
-              <div class="fix-3-12 equalElement">
-                <h6 class="uppercase opacity-4 margin-top-3 margin-bottom-2">Stay in touch</h6>
-                <ul class="social-circles">
-                  <li><a class="social-facebook" href="https://www.facebook.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook2"></use></svg></a></li>
-                  <li><a class="social-linkedin" href="https://www.linkedin.com/company/mashroom/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg></a></li>
-                  <li><a class="social-instagram" href="https://www.instagram.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use></svg></a></li>
+              <div class="fix-12-12 equalElement">
+                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Stay in touch</h6>
+                <form class="slides-form margin-bottom-1 margin-top-0" id="subscribe">
+				  <input type="email" value="" class="ae-2 fromLeft" name="subscribe-email" id="subscribe-email" placeholder="Your e-mail"/>
+				  <button type="submit" value="" class="button stroke white text-white ae-3 fromRight" name="subscribe-submit">Get Updates</button>
+				  <label for="subscribe-email" class="subscribe-message"></label>
+				</form>
+				<a href="privacy.html" class="tiny ae-4"><span class="opacity-8">Privacy Policy</span></a>
+                <ul class="social-circles margin-top-2">
+                  <li><a class="social" href="https://www.facebook.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook2"></use></svg></a></li>
+                  <li><a class="social" href="https://www.linkedin.com/company/mashroom/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg></a></li>
+                  <li><a class="social" href="https://www.instagram.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use></svg></a></li>
                 </ul>
               </div>
             </li>
           </ul>
         </div>
-        
+                
       </div>
     </div>
   </div>
   <div class="background" style="background-image:url(assets/img/background/mashroom_bg.jpg)"></div>
 </section>
+<div class="popup" data-popup-id="mapbox">
+  <div class="close opaque"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
+  <div class="content">
+    <div class="container">
+      <div id='mapboxBackground' style='width: 100vw;height: 100vh;'></div>
+    </div>
+  </div>
+</div>
+
+
+
 
 </body>
 </html>

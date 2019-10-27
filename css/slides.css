@@ -748,12 +748,12 @@ img.rounded {
   background-color: #F9FBFC;
   position: relative;
   background: #F9FBFC;
-  padding: 15px 16px 16px;
+  padding: 18px 24px 14px;
   border: none;
   font-size: 16px;
   color: #242424;
   outline: none;
-  border-radius: 4px;
+  border-radius: 26px;
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
