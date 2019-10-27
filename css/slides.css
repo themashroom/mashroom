@@ -4684,6 +4684,14 @@ blockquote.tiny {
   margin-bottom: 12px;
   font-weight: 400;
 }
+p.tiny2,
+.p.tiny2,
+blockquote.tiny2 {
+  font-size: 14px;
+  line-height: 1.625;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
 p.micro,
 .p.micro,
 blockquote.micro {
