@@ -1704,18 +1704,18 @@ html.mobile .showForMobileInline {
   font-size: 0;
 }
 .panel .sections .menu svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   vertical-align: bottom;
 }
 .panel .sections .menu li {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   display: inline-block;
   margin: 0 10px;
 }
 .panel .sections .menu li a {
-  padding: 0 7px;
+  padding: 0 6px;
   opacity: 0.8;
 }
 .panel .sections .menu li a:hover {
@@ -8384,7 +8384,10 @@ span.next-arrow svg {
 }
 
 .trim {
-  padding: 0 !important;
+  padding: 0 0 20px 0 !important;
+  font-size: 13px;
+  font-weight: 200;
+  opacity: .8;
 }
 
 .trimBottom {
