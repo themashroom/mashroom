@@ -6,7 +6,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<!-- Page Title -->
-	<title>About - Mashroom</title>
+	<title>Contact - Mashroom</title>
 
 	<!-- Uncompressed Styles -->
 	<link href="css/slides.css?425341" rel="stylesheet" type="text/css">
@@ -161,108 +161,6 @@
   });
 </script>
 
-<!-- Map Box (https://www.mapbox.com/) -->
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
-
-<script>
-  $(function(){
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWFzdGVybGVvcG9sZCIsImEiOiJNaXZqYWhvIn0.39SShM4ElJZhcSMAJ8H3uA';
-    var map = new mapboxgl.Map({
-      container: 'mapboxBackground',
-      style: 'mapbox://styles/mapbox/dark-v9',
-      zoom: 15.71,
-      pitch: 45,
-      center: [139.730991, 35.622191],
-      bearing: -17.6,
-      antialias: true,
-      type: "Point"
-    });
-    
-	map.on("load", function () {
-	  /* Image: An image is loaded and added to the map. */
-	  map.loadImage("https://mashroo.me/assets/img/mashroom.png", function(error, image) {
-	      if (error) throw error;
-	      map.addImage("custom-marker", image);
-	      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-	      map.addLayer({
-	        id: "markers",
-	        type: "symbol",
-	        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-	        source: {
-	          type: "geojson",
-	          data: {
-	            type: 'FeatureCollection',
-	            features: [
-	              {
-	                type: 'Feature',
-	                properties: {},
-	                geometry: {
-	                  type: "Point",
-	                  coordinates: [139.731, 35.6221]
-	                }
-	              }
-	            ]
-	          }
-	        },
-	        layout: {
-	          "icon-image": "custom-marker",
-	        }
-	      });
-	    });
-	});
-	
-
-    
-	// The 'building' layer in the mapbox-streets vector source contains building-height
-	// data from OpenStreetMap.
-	map.on('load', function() {
-	// Insert the layer beneath any symbol layer.
-	var layers = map.getStyle().layers;
-	 
-	var labelLayerId;
-	for (var i = 0; i < layers.length; i++) {
-	if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-	labelLayerId = layers[i].id;
-	break;
-	}
-	}
-	 
-	map.addLayer({
-	'id': '3d-buildings',
-	'source': 'composite',
-	'source-layer': 'building',
-	'filter': ['==', 'extrude', 'true'],
-	'type': 'fill-extrusion',
-	'minzoom': 15,
-	'paint': {
-	'fill-extrusion-color': '#aaa',
-	 
-	// use an 'interpolate' expression to add a smooth transition effect to the
-	// buildings as the user zooms in
-	'fill-extrusion-height': [
-	"interpolate", ["linear"], ["zoom"],
-	15, 0,
-	15.05, ["get", "height"]
-	],
-	'fill-extrusion-base': [
-	"interpolate", ["linear"], ["zoom"],
-	15, 0,
-	15.05, ["get", "min_height"]
-	],
-	'fill-extrusion-opacity': .6
-	}
-	}, labelLayerId);
-	});
-
-
-    $('.popupTrigger[data-popup-id="mapbox"]').on('click', function(){
-      map.resize();
-    });
-  });
-</script>
-
-
 <style>
   .panel.top {
     -webkit-transition: 0.8s transform, 0.8s opacity, 0.8s background !important;
@@ -281,7 +179,6 @@
   .slides.scroll .menuToggle.scrollEffectToggle *,
   .slides:not(.scroll) .menuToggle.slideEffectToggle * { cursor: default !important; opacity:1; pointer-events:none;}
 </style>
-
 
 <!-- Mail Chimp  -->
 <script src="https://rawcdn.githack.com/scdoshi/jquery-ajaxchimp/47c0beaa/jquery.ajaxchimp.min.js"></script>
@@ -350,8 +247,6 @@
 </style>
 
 
-
-
 <!-- Panel Top #library/panel/panel-top-08.html -->
 <nav class="panel top white">
   <div class="sections desktop">
@@ -384,8 +279,8 @@
       <li><a href="technology.html">Technology</a></li>
     </ul>
     <ul class="subMenu small opacity-8">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <ul class="social opacity-8">
       <li><a href="https://www.facebook.com/mashroominc/" target="_blank"><svg style="fill:#fff"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use></svg></a></li>
@@ -395,134 +290,41 @@
   </div>
 </nav>
 
-<!-- Team -->
-<section class="slide fade-7 kenBurns">
-  <div class="content">
-    <div class="container">
-      <div class="wrap">
-	    <div class="fix-10-12 toCenter">
-          <h3 class="ae-1 margin-bottom-3">FOUNDERS</h3>
-          <h1 class="ae-1">We are all mashed up.</h1>
-          <p class="ae-3 hero margin-bottom-7">The team of experienced entrepreneurs.</p>
-        </div>
-        <div class="fix-12-12">  
-          <ul class="grid equal fromCenter">
-            <li class="col-3-12">
-              <div class="pad shadowHover padding-0 ae-1 margin-bottom-2">
-                <div class="thumbnail-70">
-                  <img class="fill" src="assets/img/yamase.jpg" alt="Image">
-                </div>
-                <div class="info-70">
-                  <h3>Taketo Yamase</h3>
-                  <h6 class="opacity-4 margin-bottom-3 margin-top-1">Co-founder, COO</h6>
-                  <p class="tiny2 opacity-6 margin-bottom-0 equalElement">B.Eng. & 20+ yrs of sales experience in video game and software industry. Formerly worked at Taito Corporation.</p>
-                </div>
-              </div>
-            </li>
-            <li class="col-3-12">
-              <div class="pad shadowHover padding-0 ae-2 margin-bottom-2">
-                <div class="thumbnail-70">
-                  <img class="fill" src="assets/img/takimoto.jpg" alt="Image">
-                </div>
-                <div class="info-70">
-	              <h3>Kiyofumi Takimoto</h3>
-                  <h6 class="opacity-4 margin-bottom-3 margin-top-1">Co-founder, COO</h6>
-                  <p class="tiny2 opacity-6 margin-bottom-0 equalElement">M.Sc. & 20+ yrs of experience in software development. Formerly worked at Yamaha Motors and Square Enix.</p>
-                </div>
-              </div>
-            </li>
-            <li class="col-3-12">
-              <div class="pad shadowHover padding-0 ae-3 margin-bottom-2">
-                <div class="thumbnail-70">
-                  <img class="fill" src="assets/img/kyono.jpg" alt="Image">
-                </div>
-                <div class="info-70">
-                  <h3>Yutaro Kyono</h3>
-                  <h6 class="opacity-4 margin-bottom-3 margin-top-1">Co-founder, CTO</h6>
-                  <p class="tiny2 opacity-6 margin-bottom-0 equalElement">M.Sc. & 20+ yrs of experience in hardware engineering & 15+ yrs of software development.</p>
-                </div>
-              </div>
-            </li>
-            <li class="col-3-12">
-              <div class="pad shadowHover padding-0 ae-4 margin-bottom-2">
-                <div class="thumbnail-70">
-                  <img class="fill" src="assets/img/hara.jpg" alt="Image">
-                </div>
-                <div class="info-70">
-                  <h3>Yoichiro Hara</h3>
-                  <h6 class="opacity-4 margin-bottom-3 margin-top-1">Co-founder, CEO</h6>
-                  <p class="tiny2 opacity-6 margin-bottom-0 equalElement">B.Sc. & 15+ yrs of business development and design experience in software industry.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-      </div> 
-    </div>
-  </div>
-  <div class="background" style="background-image:url(assets/img/background/team_photo.jpg)"></div>
-</section>
-
-<!-- Summary -->
+<!-- Contact -->
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
       
-        <div class="fix-12-12">
-          <h1 class="ae-1">Minimize friction for maximizing transaction.</h1>
-          <div class="fix-8-12">
-          <p class="ae-2 hero"><span class="opacity-8">Our goal is to minimize the friction and maximize the service transaction at physical world with our simplified universal authentication platform.</span></p>
+        <h1 class="ae-1">Say Hello.</h1>
+        <p class="ae-2 hero margin-bottom-6">Feel free to ask anything about our products.</p>
+        <div class="fix-8-12 margin-top-6 form-55">
+          <div class="pad shadow selected ae-3">
+            <form action="https://mashroo.us5.list-manage.com/subscribe/post?u=b8e08b19b7bdc680cab71f08e&amp;id=154b8e880b"  class="slides-form wide2 left" id="subscribe" name="mc-embedded-subscribe-form"  method="post">
+              
+              <ul class="grid noSpaces">
+                <li class="col-6-12 form-55-input-1">
+                  <div class="label ae-5"><label class="left opacity-5">Your name</label></div>
+                  <input class="ae-6" id="mce-NAME" type="name" name="NAME" placeholder="Name" required/>
+                </li>
+                <li class="col-6-12 form-55-input-2">
+                  <div class="label ae-5"><label class="left opacity-5">Email address</label></div>
+                  <input class="ae-6" id="mce-EMAIL" type="email" name="EMAIL" placeholder="Email" required/>
+                </li>
+              </ul>
+              <div class="label ae-7"><label class="opacity-5">Message</label></div>
+              <textarea class="wide2 left ae-8" id="mce-MESSAGE" type="text" name="MESSAGE" placeholder="Message" required></textarea>
+              <input class="button wide2 gray margin-top-2 cropBottom" type="submit" name="subscribe" value="Subscribe" id="mc-embedded-subscribe" data-success-text="Done!" data-success-class="green"/>
+              <label for="mce-EMAIL" class="subscribe-message center"></label>
+            </form>
           </div>
-          <ul class="grid equal fixedSpaces margin-top-6">
-            <li class="col-2-12 ae-3">
-              <div class="fix-2-12 equalElement">
-                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Founded in</h6>
-                <p class="tiny">Dec. 2017</p>
-                <h6 class="uppercase opacity-5 margin-top-4 margin-bottom-2">Phone</h6>
-                <p class="tiny">+81 50 5867 6542</p>
-              </div>
-            </li>
-            <li class="col-4-12 ae-3">
-              <div class="fix-4-12 equalElement">
-                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Location</h6>
-                <p class="tiny"><a class="opacity-8" href="#">5-5-15 Kitashinagawa, Shinagawa, Tokyo 1410001 Japan</a></p>
-                <a class="button  white ae-4 fromCenter margin-top-1 popupTrigger" data-popup-id="mapbox">Access Map</a>
-              </div>
-            </li>
-            <li class="col-6-12 ae-5">
-              <div class="fix-12-12 equalElement">
-                <h6 class="uppercase opacity-5 margin-top-3 margin-bottom-2">Stay in touch</h6>
-                <form class="slides-form margin-bottom-1 margin-top-0" id="subscribe">
-				  <input type="email" value="" class="ae-2 fromLeft" name="subscribe-email" id="subscribe-email" placeholder="Your e-mail"/>
-				  <button type="submit" value="" class="button stroke white text-white ae-3 fromRight" name="subscribe-submit">Get Updates</button>
-				  <label for="subscribe-email" class="subscribe-message"></label>
-				</form>
-				<a href="privacy.html" class="tiny ae-4"><span class="opacity-6">Privacy Policy</span></a>
-                <ul class="social-circles margin-top-1">
-                  <li><a class="social" href="https://www.facebook.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook2"></use></svg></a></li>
-                  <li><a class="social" href="https://www.linkedin.com/company/mashroom/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg></a></li>
-                  <li><a class="social" href="https://www.instagram.com/mashroominc/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use></svg></a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
         </div>
-                
+        
       </div>
     </div>
-  </div>
-  <div class="background" style="background-image:url(assets/img/background/mashroom_bg.jpg)"></div>
+  </div>  
+  <div class="background" style="background-image:url(assets/img/background/mashroom_bg3.jpg)"></div>
 </section>
-<div class="popup" data-popup-id="mapbox">
-  <div class="close opaque"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
-  <div class="content">
-    <div class="container">
-      <div id='mapboxBackground' style='width: 100vw;height: 100vh;'></div>
-    </div>
-  </div>
-</div>
 
 <!-- Panel Bottom -->
 <nav class="panel bottom lastSlideOnly" >

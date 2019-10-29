@@ -894,7 +894,7 @@ img.rounded {
   .slides-form input[type="number"],
   .slides-form textarea,
   .slides-form select {
-    max-width: 300px;
+    max-width: 100%;
   }
 }
 .slides-form input[type="text"]::-webkit-input-placeholder,
@@ -8128,6 +8128,9 @@ span.next-arrow svg {
 }
 
 .wide {
+  width: 100%;
+}
+.wide2 {
   width: 100%;
 }
 
