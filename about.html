@@ -162,8 +162,8 @@
 </script>
 
 <!-- Map Box (https://www.mapbox.com/) -->
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 
 <script>
   $(function(){
@@ -171,10 +171,90 @@
     var map = new mapboxgl.Map({
       container: 'mapboxBackground',
       style: 'mapbox://styles/mapbox/dark-v9',
-      zoom: 13,
-      center: [139.7309913351345, 35.622191828380664],
+      zoom: 15.71,
+      pitch: 45,
+      center: [139.730991, 35.622191],
+      bearing: -17.6,
+      antialias: true,
       type: "Point"
     });
+    
+	map.on("load", function () {
+	  /* Image: An image is loaded and added to the map. */
+	  map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+	      if (error) throw error;
+	      map.addImage("custom-marker", image);
+	      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+	      map.addLayer({
+	        id: "markers",
+	        type: "symbol",
+	        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+	        source: {
+	          type: "geojson",
+	          data: {
+	            type: 'FeatureCollection',
+	            features: [
+	              {
+	                type: 'Feature',
+	                properties: {},
+	                geometry: {
+	                  type: "Point",
+	                  coordinates: [139.731, 35.6221]
+	                }
+	              }
+	            ]
+	          }
+	        },
+	        layout: {
+	          "icon-image": "custom-marker",
+	        }
+	      });
+	    });
+	});
+	
+
+    
+	// The 'building' layer in the mapbox-streets vector source contains building-height
+	// data from OpenStreetMap.
+	map.on('load', function() {
+	// Insert the layer beneath any symbol layer.
+	var layers = map.getStyle().layers;
+	 
+	var labelLayerId;
+	for (var i = 0; i < layers.length; i++) {
+	if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+	labelLayerId = layers[i].id;
+	break;
+	}
+	}
+	 
+	map.addLayer({
+	'id': '3d-buildings',
+	'source': 'composite',
+	'source-layer': 'building',
+	'filter': ['==', 'extrude', 'true'],
+	'type': 'fill-extrusion',
+	'minzoom': 15,
+	'paint': {
+	'fill-extrusion-color': '#aaa',
+	 
+	// use an 'interpolate' expression to add a smooth transition effect to the
+	// buildings as the user zooms in
+	'fill-extrusion-height': [
+	"interpolate", ["linear"], ["zoom"],
+	15, 0,
+	15.05, ["get", "height"]
+	],
+	'fill-extrusion-base': [
+	"interpolate", ["linear"], ["zoom"],
+	15, 0,
+	15.05, ["get", "min_height"]
+	],
+	'fill-extrusion-opacity': .6
+	}
+	}, labelLayerId);
+	});
+
 
     $('.popupTrigger[data-popup-id="mapbox"]').on('click', function(){
       map.resize();
