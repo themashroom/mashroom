@@ -1444,10 +1444,12 @@ html:not(.mobile) .slide.video .background[style] {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
-
   .shiftImageVertical {
     margin-right: 0 !important;
     max-width: 100% !important;
+  }
+  .bottom{
+    display: none;
   }
 }
 /* desktop and bigger */
